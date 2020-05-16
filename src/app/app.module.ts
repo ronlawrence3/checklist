@@ -13,6 +13,7 @@ import { entityConfig } from './entity-metadata';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { ServiceWorkerModule } from '@angular/service-worker';
 import { environment } from '../environments/environment';
+import { HttpClientModule } from '@angular/common/http';
 
 @NgModule({
   declarations: [
@@ -32,6 +33,7 @@ import { environment } from '../environments/environment';
     StoreRouterConnectingModule.forRoot(),
     EntityDataModule.forRoot(entityConfig),
     BrowserAnimationsModule,
+    HttpClientModule,
     ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production })
   ],
   providers: [],
