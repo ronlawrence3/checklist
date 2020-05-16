@@ -42,5 +42,5 @@ npm i --save ag-grid-community ag-grid-angular
 
 # testing
 ng add @briebug/jest-schematic
-npm i --save-dev cypress
+ng add @briebug/cypress-schematic --removeProtractor=true
 ```
