@@ -8,8 +8,10 @@
     "test": "jest",
     "lint": "ng lint",
     "test:watch": "jest --watch",
+    "e2e": "ng e2e --headless=true --exit=true",
     "cypress-open": "cypress open",
-    "cypress-run": "cypress run"
+    "cypress-run": "cypress run",
+    "fulltest": "npm run test && npm run e2e"
   },
   "private": true,
   "dependencies": {
