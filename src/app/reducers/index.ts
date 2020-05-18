@@ -7,10 +7,12 @@ export interface AppState {
   checkLists?: CheckLists;
 }
 
-export const reducers: ActionReducerMap<AppState> = {
-  initialized: (state = false, action) => {
+export function reduceInitialized(state = false, action): boolean {
     return state;
-  }
+}
+
+export const reducers: ActionReducerMap<AppState> = {
+  initialized: reduceInitialized
 };
 
 

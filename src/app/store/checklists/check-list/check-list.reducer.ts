@@ -2,7 +2,6 @@ import { Action, createReducer, on } from '@ngrx/store';
 import { EntityState, EntityAdapter, createEntityAdapter } from '@ngrx/entity';
 import { CheckList } from './check-list.model';
 import * as CheckListActions from './check-list.actions';
-import { CheckLists } from '../../../models/check-lists.model';
 
 export const checkListsFeatureKey = 'checkLists';
 
@@ -16,8 +15,11 @@ export const initialState: ChecklistState = adapter.getInitialState({
   // additional entity state properties
 });
 
+export function reducer(state, action) {
+  return internalReducer(state, action);
+}
 
-export const reducer = createReducer(
+const internalReducer = createReducer(
   initialState,
   on(CheckListActions.addCheckList,
     (state, action) => adapter.addOne(action.checkList, state)
