@@ -1,0 +1,60 @@
+import { Action, createReducer, on } from '@ngrx/store';
+import { EntityState, EntityAdapter, createEntityAdapter } from '@ngrx/entity';
+import { CheckList } from './check-list.model';
+import * as CheckListActions from './check-list.actions';
+import { CheckLists } from '../../../models/check-lists.model';
+
+export const checkListsFeatureKey = 'checkLists';
+
+export interface ChecklistState extends EntityState<CheckList> {
+  // additional entities state properties
+}
+
+export const adapter: EntityAdapter<CheckList> = createEntityAdapter<CheckList>();
+
+export const initialState: ChecklistState = adapter.getInitialState({
+  // additional entity state properties
+});
+
+
+export const reducer = createReducer(
+  initialState,
+  on(CheckListActions.addCheckList,
+    (state, action) => adapter.addOne(action.checkList, state)
+  ),
+  on(CheckListActions.upsertCheckList,
+    (state, action) => adapter.upsertOne(action.checkList, state)
+  ),
+  on(CheckListActions.addCheckLists,
+    (state, action) => adapter.addMany(action.checkLists, state)
+  ),
+  on(CheckListActions.upsertCheckLists,
+    (state, action) => adapter.upsertMany(action.checkLists, state)
+  ),
+  on(CheckListActions.updateCheckList,
+    (state, action) => adapter.updateOne(action.checkList, state)
+  ),
+  on(CheckListActions.updateCheckLists,
+    (state, action) => adapter.updateMany(action.checkLists, state)
+  ),
+  on(CheckListActions.deleteCheckList,
+    (state, action) => adapter.removeOne(action.id, state)
+  ),
+  on(CheckListActions.deleteCheckLists,
+    (state, action) => adapter.removeMany(action.ids, state)
+  ),
+  on(CheckListActions.loadCheckLists,
+    (state, action) => adapter.addAll(action.checkLists, state)
+  ),
+  on(CheckListActions.clearCheckLists,
+    state => adapter.removeAll(state)
+  ),
+);
+
+
+export const {
+  selectIds,
+  selectEntities,
+  selectAll,
+  selectTotal,
+} = adapter.getSelectors();

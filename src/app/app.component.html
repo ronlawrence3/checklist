@@ -1,10 +1,10 @@
-<div>
-  <mat-toolbar color="primary" class="navbar-formatting">
-    <span class="navbar-title" routerLink="/"  >Checklists!</span>
-    <button mat-flat-button color="primary" routerLink="/lists" routerLinkActive="nav-active">Lists</button>
-    <button mat-flat-button color="primary" routerLink="/admin" routerLinkActive="nav-active">Admin</button>
-    <span class="gap"></span>
-    <button mat-flat-button color="primary" routerLink="/help" routerLinkActive="nav-active">Help</button>
-  </mat-toolbar>
+<mat-toolbar color="primary" class="navbar-formatting">
+  <span class="navbar-title" routerLink="/">Checklists!</span>
+  <button mat-flat-button color="primary" routerLink="/lists" routerLinkActive="nav-active">Lists</button>
+  <button mat-flat-button color="primary" routerLink="/admin" routerLinkActive="nav-active">Admin</button>
+  <span class="gap"></span>
+  <button mat-flat-button color="primary" routerLink="/help" routerLinkActive="nav-active">Help</button>
+</mat-toolbar>
+<div class="content-container">
   <router-outlet></router-outlet>
 </div>

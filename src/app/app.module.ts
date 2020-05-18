@@ -17,6 +17,9 @@ import { HttpClientModule } from '@angular/common/http';
 import { MatToolbarModule } from '@angular/material/toolbar';
 import { MatButtonModule } from '@angular/material/button';
 import { HomeComponent } from './home/home.component';
+import { MatCardModule } from '@angular/material/card';
+import { ChecklistsModule } from './store/checklists/checklists.module';
+import { ChecklistsService } from './checklists.service';
 
 @NgModule({
   declarations: [
@@ -36,13 +39,15 @@ import { HomeComponent } from './home/home.component';
     EffectsModule.forRoot([AppEffects]),
     StoreRouterConnectingModule.forRoot(),
     EntityDataModule.forRoot(entityConfig),
+    ChecklistsModule,
     BrowserAnimationsModule,
     HttpClientModule,
     ServiceWorkerModule.register('ngsw-worker.js', {enabled: environment.production}),
     MatToolbarModule,
-    MatButtonModule
+    MatButtonModule,
+    MatCardModule
   ],
-  providers: [],
+  providers: [ChecklistsService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

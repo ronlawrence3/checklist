@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { Store } from '@ngrx/store';
+import { AppState } from '../../reducers';
 
 @Component({
   selector: 'app-checklist-list',
@@ -7,7 +9,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ChecklistListComponent implements OnInit {
 
-  constructor() { }
+  constructor(store: Store<AppState>) {
+  }
 
   ngOnInit() {
   }

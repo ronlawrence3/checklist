@@ -6,7 +6,36 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./checklist.component.scss']
 })
 export class ChecklistComponent implements OnInit {
-
+  items = [
+    {    },
+    {    },
+    {    },
+    {    },
+    {    },
+    {    },
+    {    },
+    {    },
+    {    },
+    {    },
+    {    },
+    {    },
+    {    },
+    {    },
+    {    },
+    {    },
+    {    },
+    {    },
+    {    },
+    {    },
+    {    },
+    {    },
+    {    },
+    {    },
+    {    },
+    {    },
+    {    },
+    {    },
+  ];
   constructor() { }
 
   ngOnInit() {
