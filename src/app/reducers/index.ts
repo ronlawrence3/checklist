@@ -8,12 +8,11 @@ export interface AppState {
 }
 
 export function reduceInitialized(state = false, action): boolean {
-    return state;
+  return state;
 }
 
 export const reducers: ActionReducerMap<AppState> = {
-  initialized: reduceInitialized
+  initialized: reduceInitialized,
 };
-
 
 export const metaReducers: MetaReducer<AppState>[] = !environment.production ? [] : [];

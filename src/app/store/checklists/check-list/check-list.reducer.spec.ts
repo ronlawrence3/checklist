@@ -7,7 +7,7 @@ import {
   updateCheckList,
   updateCheckLists,
   upsertCheckList,
-  upsertCheckLists
+  upsertCheckLists,
 } from './check-list.actions';
 import { Action } from '@ngrx/store';
 
@@ -22,51 +22,53 @@ describe('CheckList Reducer', () => {
     });
 
     it('should add / delete', () => {
-      let action: Action = addCheckList({checkList: {id: '1', name: '1_name', items: []}});
+      let action: Action = addCheckList({ checkList: { id: '1', name: '1_name', items: [] } });
 
       let result = reducer(initialState, action);
-      expect(result).toEqual({entities: {1: {id: '1', items: [], name: '1_name'}}, ids: ['1']});
+      expect(result).toEqual({ entities: { 1: { id: '1', items: [], name: '1_name' } }, ids: ['1'] });
 
-      action = upsertCheckList({checkList: {id: '1', items: [], name: '1_name_1'}});
+      action = upsertCheckList({ checkList: { id: '1', items: [], name: '1_name_1' } });
       result = reducer(result, action);
-      expect(result).toEqual({entities: {1: {id: '1', items: [], name: '1_name_1'}}, ids: ['1']});
+      expect(result).toEqual({ entities: { 1: { id: '1', items: [], name: '1_name_1' } }, ids: ['1'] });
 
-      action = loadCheckLists({checkLists: [{id: '1', items: [], name: '1_name_2'}]});
+      action = loadCheckLists({ checkLists: [{ id: '1', items: [], name: '1_name_2' }] });
       result = reducer(result, action);
-      expect(result).toEqual({entities: {1: {id: '1', items: [], name: '1_name_2'}}, ids: ['1']});
+      expect(result).toEqual({ entities: { 1: { id: '1', items: [], name: '1_name_2' } }, ids: ['1'] });
 
-      action = updateCheckList({checkList: {id: '1', changes: {name: '1_name_3'}}});
+      action = updateCheckList({ checkList: { id: '1', changes: { name: '1_name_3' } } });
       result = reducer(result, action);
-      expect(result).toEqual({entities: {1: {id: '1', items: [], name: '1_name_3'}}, ids: ['1']});
+      expect(result).toEqual({ entities: { 1: { id: '1', items: [], name: '1_name_3' } }, ids: ['1'] });
 
-      action = updateCheckLists({checkLists: [{id: '1', changes: {name: '1_name_4'}}]});
+      action = updateCheckLists({ checkLists: [{ id: '1', changes: { name: '1_name_4' } }] });
       result = reducer(result, action);
-      expect(result).toEqual({entities: {1: {id: '1', items: [], name: '1_name_4'}}, ids: ['1']});
+      expect(result).toEqual({ entities: { 1: { id: '1', items: [], name: '1_name_4' } }, ids: ['1'] });
 
       action = upsertCheckLists({
-        checkLists: [{id: '1', name: '1_name_5', items: []}, {
-          id: '2',
-          name: '2_name_5',
-          items: []
-        }]
+        checkLists: [
+          { id: '1', name: '1_name_5', items: [] },
+          {
+            id: '2',
+            name: '2_name_5',
+            items: [],
+          },
+        ],
       });
       result = reducer(result, action);
       expect(result).toEqual({
         entities: {
-          1: {id: '1', items: [], name: '1_name_5'},
-          2: {id: '2', items: [], name: '2_name_5'}
-        }, ids: ['1', '2']
+          1: { id: '1', items: [], name: '1_name_5' },
+          2: { id: '2', items: [], name: '2_name_5' },
+        },
+        ids: ['1', '2'],
       });
 
-      action = deleteCheckList({id: '1'});
+      action = deleteCheckList({ id: '1' });
       result = reducer(result, action);
-      expect(result).toEqual({entities: {2: {id: '2', items: [], name: '2_name_5'}}, ids: ['2']});
+      expect(result).toEqual({ entities: { 2: { id: '2', items: [], name: '2_name_5' } }, ids: ['2'] });
 
       action = clearCheckLists();
       result = reducer(result, action);
-      expect(result).toEqual({entities: {}, ids: []});
-
+      expect(result).toEqual({ entities: {}, ids: [] });
     });
-
   });
 });

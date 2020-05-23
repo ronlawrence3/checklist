@@ -5,15 +5,14 @@ import { CheckList } from './models/check-list.model';
 import { getUuid } from '@ngrx/data';
 
 @Injectable({
-  providedIn: 'root'
+  providedIn: 'root',
 })
 export class ChecklistsService {
   private testData: CheckLists = {
-    checkLists: []
+    checkLists: [],
   };
 
-  constructor() {
-  }
+  constructor() {}
 
   getCheckLists(): Observable<CheckLists> {
     return of(this.testData);

@@ -11,11 +11,8 @@ describe('ChecklistListComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [ChecklistModule],
-      providers: [
-        provideMockStore()
-      ]
-    })
-      .compileComponents();
+      providers: [provideMockStore()],
+    }).compileComponents();
   }));
 
   beforeEach(() => {

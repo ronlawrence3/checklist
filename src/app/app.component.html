@@ -1,10 +1,21 @@
-<mat-toolbar color="primary" class="navbar-formatting">
-  <span class="navbar-title" routerLink="/">Checklists!</span>
-  <button mat-flat-button color="primary" routerLink="/lists" routerLinkActive="nav-active">Lists</button>
-  <button mat-flat-button color="primary" routerLink="/admin" routerLinkActive="nav-active">Admin</button>
-  <span class="gap"></span>
-  <button mat-flat-button color="primary" routerLink="/help" routerLinkActive="nav-active">Help</button>
-</mat-toolbar>
-<div class="content-container">
-  <router-outlet></router-outlet>
-</div>
+<mat-sidenav-container>
+  <mat-sidenav #sidenav mode="side">
+    <mat-toolbar color="primary" class="navbar-sidenav">
+      <button mat-icon-button (click)="addList()">
+        <mat-icon>add</mat-icon>
+      </button>
+    </mat-toolbar>
+    <app-checklist-list></app-checklist-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <mat-toolbar color="primary" class="navbar-formatting">
+      <button mat-icon-button (click)="sidenav.toggle()">
+        <mat-icon>list</mat-icon>
+      </button>
+      <span class="gap"></span>
+    </mat-toolbar>
+    <div class="content-container">
+      <router-outlet></router-outlet>
+    </div>
+  </mat-sidenav-content>
+</mat-sidenav-container>

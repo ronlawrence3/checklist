@@ -29,11 +29,12 @@ Run `ng e2e` to execute the end-to-end tests via Cypress.
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
 
 # How this was started
+
 ```
-ng n checklist --routing=true --style=scss  
+ng n checklist --routing=true --style=scss
 cd checklist
 ng add @angular/material --defaults
-ng add @ngrx/store --minimal false 
+ng add @ngrx/store --minimal false
 ng add @ngrx/effects --minimal false
 ng add @ngrx/router-store
 ng add @ngrx/entity

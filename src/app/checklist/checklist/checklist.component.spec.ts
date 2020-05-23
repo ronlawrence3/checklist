@@ -10,8 +10,7 @@ describe('ChecklistComponent', () => {
   beforeEach(async(() => {
     TestBed.configureTestingModule({
       imports: [ChecklistModule],
-    })
-    .compileComponents();
+    }).compileComponents();
   }));
 
   beforeEach(() => {

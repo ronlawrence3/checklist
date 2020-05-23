@@ -3,12 +3,17 @@
   padding-right: 20px;
 }
 
+.navbar-sidenav {
+  top: 0;
+  left: 0;
+  right: 0;
+}
+
 .navbar-formatting {
   position: fixed;
   top: 0;
   display: flex;
   justify-content: space-evenly;
-
 }
 
 .nav-active {
@@ -22,11 +27,13 @@
 
 div.content-container {
   display: block;
-  position: fixed;
+  height: calc(100vh - 65px);
   margin-left: 10px;
-  top: 65px;
+  margin-top: 65px;
+  top: 0;
   left: 0;
   right: 0;
+  bottom: 0;
   border: 1px black;
   overflow: auto;
 }

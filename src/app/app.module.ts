@@ -20,12 +20,12 @@ import { HomeComponent } from './home/home.component';
 import { MatCardModule } from '@angular/material/card';
 import { ChecklistsModule } from './store/checklists/checklists.module';
 import { ChecklistsService } from './checklists.service';
+import { MatSidenavModule } from '@angular/material/sidenav';
+import { ChecklistModule } from './checklist/checklist.module';
+import { MatIconModule } from '@angular/material/icon';
 
 @NgModule({
-  declarations: [
-    AppComponent,
-    HomeComponent
-  ],
+  declarations: [AppComponent, HomeComponent],
   imports: [
     BrowserModule,
     AppRoutingModule,
@@ -33,8 +33,8 @@ import { ChecklistsService } from './checklists.service';
       metaReducers,
       runtimeChecks: {
         strictStateImmutability: true,
-        strictActionImmutability: true
-      }
+        strictActionImmutability: true,
+      },
     }),
     EffectsModule.forRoot([AppEffects]),
     StoreRouterConnectingModule.forRoot(),
@@ -42,12 +42,15 @@ import { ChecklistsService } from './checklists.service';
     ChecklistsModule,
     BrowserAnimationsModule,
     HttpClientModule,
-    ServiceWorkerModule.register('ngsw-worker.js', {enabled: environment.production}),
+    ServiceWorkerModule.register('ngsw-worker.js', { enabled: environment.production }),
     MatToolbarModule,
     MatButtonModule,
-    MatCardModule
+    MatCardModule,
+    MatSidenavModule,
+    ChecklistModule,
+    MatIconModule,
   ],
   providers: [ChecklistsService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
-export class AppModule { }
+export class AppModule {}

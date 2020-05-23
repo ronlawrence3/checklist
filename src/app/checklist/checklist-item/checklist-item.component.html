@@ -1,1 +1,6 @@
-<p>checklist-item works!</p>
+<form [formGroup]="itemForm">
+  <div class="item-drag-handle"></div>
+  <mat-checkbox formControlName="checked"></mat-checkbox>
+  <input matInput formControlName="text" [name]="'clitem-' + item?.id" />
+  <button mat-icon-button (click)="menu()"><mat-icon>menu</mat-icon></button>
+</form>

@@ -1,5 +1,9 @@
-<p>checklist works!</p>
+<p>{{title}}</p>
 
 <div *ngFor="let i of items">
+  <app-checklist-item></app-checklist-item>
+</div>
+
+<div *ngFor="let i of completedItems">
   <app-checklist-item></app-checklist-item>
 </div>
