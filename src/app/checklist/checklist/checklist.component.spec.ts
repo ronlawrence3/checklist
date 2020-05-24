@@ -2,6 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ChecklistComponent } from './checklist.component';
 import { ChecklistModule } from '../checklist.module';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('ChecklistComponent', () => {
   let component: ChecklistComponent;
@@ -9,7 +10,7 @@ describe('ChecklistComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [ChecklistModule],
+      imports: [ChecklistModule, NoopAnimationsModule],
     }).compileComponents();
   }));
 
@@ -21,5 +22,9 @@ describe('ChecklistComponent', () => {
 
   it('should create', () => {
     expect(component).toBeTruthy();
+  });
+
+  it('should keep in same order', () => {
+    // component.checkList = {};
   });
 });

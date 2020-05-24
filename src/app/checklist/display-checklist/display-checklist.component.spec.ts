@@ -11,6 +11,8 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
+import { MatExpansionModule } from '@angular/material/expansion';
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 
 describe('DisplayChecklistComponent', () => {
   let component: DisplayChecklistComponent;
@@ -18,7 +20,16 @@ describe('DisplayChecklistComponent', () => {
 
   beforeEach(async(() => {
     TestBed.configureTestingModule({
-      imports: [MatCheckboxModule, MatInputModule, FormsModule, ReactiveFormsModule, MatButtonModule, MatIconModule],
+      imports: [
+        MatCheckboxModule,
+        MatInputModule,
+        FormsModule,
+        ReactiveFormsModule,
+        MatButtonModule,
+        MatIconModule,
+        MatExpansionModule,
+        NoopAnimationsModule,
+      ],
       declarations: [DisplayChecklistComponent, ChecklistComponent, ChecklistItemComponent],
       providers: [
         { provide: Router, useValue: {} },

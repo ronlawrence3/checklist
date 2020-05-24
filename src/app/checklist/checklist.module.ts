@@ -11,6 +11,7 @@ import { MatCardModule } from '@angular/material/card';
 import { MatButtonModule } from '@angular/material/button';
 import { MatIconModule } from '@angular/material/icon';
 import { DisplayChecklistComponent } from './display-checklist/display-checklist.component';
+import { MatExpansionModule } from '@angular/material/expansion';
 
 const routes: Routes = [
   {
@@ -36,6 +37,7 @@ const routes: Routes = [
     MatCardModule,
     MatButtonModule,
     MatIconModule,
+    MatExpansionModule,
   ],
 })
 export class ChecklistModule {}

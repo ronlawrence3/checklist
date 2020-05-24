@@ -1,0 +1,14 @@
+.form-container {
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-items: center;
+  justify-content: space-around;
+  align-content: space-around;
+}
+.item-drag-handle {
+  width: 10px;
+  height: 10px;
+  border: 1px solid;
+}

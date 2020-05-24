@@ -1,9 +1,23 @@
-<p>{{ title }}</p>
+<div [formGroup]="checklistForm">
+  <mat-form-field color="primary">
+    <input matInput formControlName="name" />
+  </mat-form-field>
+  <mat-expansion-panel togglePosition="before">
+    <mat-expansion-panel-header>Description ...</mat-expansion-panel-header>
+    <mat-form-field>
+      <textarea matInput formControlName="description"></textarea>
+    </mat-form-field>
+  </mat-expansion-panel>
 
-<div *ngFor="let i of items">
-  <app-checklist-item [item]="i" (itemChanged)="itemChanged($event, i)"></app-checklist-item>
-</div>
-<p>Completed:</p>
-<div *ngFor="let i of completedItems">
-  <app-checklist-item [item]="i" (itemChanged)="itemChanged($event, i)"></app-checklist-item>
+  <div class="list-container">
+    <div *ngFor="let i of checkList?.items" class="item-container">
+      <app-checklist-item [item]="i" (itemChanged)="itemChanged($event, i)"></app-checklist-item>
+    </div>
+  </div>
+  <mat-expansion-panel>
+    <mat-expansion-panel-header>Completed:</mat-expansion-panel-header>
+    <div *ngFor="let i of checkList?.completedItems">
+      <app-checklist-item [item]="i" (itemChanged)="completedItemChanged($event, i)"></app-checklist-item>
+    </div>
+  </mat-expansion-panel>
 </div>

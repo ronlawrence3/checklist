@@ -48,7 +48,7 @@ export class DisplayChecklistComponent implements OnInit, OnDestroy {
     );
   }
 
-  itemsChanged(items: CheckListItem[]) {
-    this.store.dispatch(updateCheckList({ checkList: { id: this.checklist.id, changes: { ...this.checklist, items } } }));
+  checklistChanged(checkList: CheckList) {
+    this.store.dispatch(updateCheckList({ checkList: { id: this.checklist.id, changes: checkList } }));
   }
 }

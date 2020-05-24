@@ -1,4 +1,4 @@
-<form [formGroup]="itemForm">
+<form [formGroup]="itemForm" class="form-container">
   <div class="item-drag-handle"></div>
   <mat-checkbox formControlName="checked"></mat-checkbox>
   <input [name]="'clitem-' + item?.id" formControlName="text" matInput />
