@@ -1,7 +1,5 @@
-import {Component, EventEmitter, Input, OnInit, Output} from '@angular/core';
-import {Store} from '@ngrx/store';
-import {AppState} from '../../reducers';
-import {CheckList} from '../../models/check-list.model';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
+import { CheckList } from '../../store/checklists/check-list/check-list.model';
 
 @Component({
   selector: 'app-checklist-list',
@@ -10,13 +8,19 @@ import {CheckList} from '../../models/check-list.model';
 })
 export class ChecklistListComponent implements OnInit {
   @Input()
-  lists: CheckList[] = [{id: 'list1', title: 'List 1', items: [], completedItems: []}];
+  lists: CheckList[];
+
   @Output()
-  listChanges: EventEmitter<CheckList[]> = new EventEmitter();
+  listClicked: EventEmitter<CheckList> = new EventEmitter<CheckList>();
 
-  constructor(store: Store<AppState>) {
-  }
+  constructor() {}
 
-  ngOnInit() {
+  ngOnInit() {}
+
+  openList(list: CheckList, $event: MouseEvent) {
+    if ($event) {
+      $event.stopPropagation();
+    }
+    this.listClicked.emit(list);
   }
 }

@@ -4,10 +4,10 @@ import { NgModule } from '@angular/core';
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { StoreModule } from '@ngrx/store';
-import { reducers, metaReducers } from './reducers';
+import { CustomSerializer, metaReducers, reducers } from './reducers';
 import { EffectsModule } from '@ngrx/effects';
 import { AppEffects } from './app.effects';
-import { StoreRouterConnectingModule } from '@ngrx/router-store';
+import { RouterStateSerializer, StoreRouterConnectingModule } from '@ngrx/router-store';
 import { EntityDataModule } from '@ngrx/data';
 import { entityConfig } from './entity-metadata';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
@@ -39,6 +39,7 @@ import { MatIconModule } from '@angular/material/icon';
     EffectsModule.forRoot([AppEffects]),
     StoreRouterConnectingModule.forRoot(),
     EntityDataModule.forRoot(entityConfig),
+    StoreRouterConnectingModule,
     ChecklistsModule,
     BrowserAnimationsModule,
     HttpClientModule,
@@ -50,7 +51,7 @@ import { MatIconModule } from '@angular/material/icon';
     ChecklistModule,
     MatIconModule,
   ],
-  providers: [ChecklistsService],
+  providers: [ChecklistsService, { provide: RouterStateSerializer, useClass: CustomSerializer }],
   bootstrap: [AppComponent],
 })
 export class AppModule {}

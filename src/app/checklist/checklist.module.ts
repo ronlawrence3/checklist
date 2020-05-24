@@ -4,13 +4,13 @@ import { ChecklistListComponent } from './checklist-list/checklist-list.componen
 import { ChecklistComponent } from './checklist/checklist.component';
 import { ChecklistItemComponent } from './checklist-item/checklist-item.component';
 import { RouterModule, Routes } from '@angular/router';
-import { MatTreeModule } from '@angular/material/tree';
 import { MatCheckboxModule } from '@angular/material/checkbox';
 import { MatInputModule } from '@angular/material/input';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { MatCardModule } from '@angular/material/card';
-import {MatButtonModule} from '@angular/material/button';
-import {MatIconModule} from '@angular/material/icon';
+import { MatButtonModule } from '@angular/material/button';
+import { MatIconModule } from '@angular/material/icon';
+import { DisplayChecklistComponent } from './display-checklist/display-checklist.component';
 
 const routes: Routes = [
   {
@@ -19,17 +19,16 @@ const routes: Routes = [
   },
   {
     path: ':id',
-    component: ChecklistComponent,
+    component: DisplayChecklistComponent,
   },
 ];
 
 @NgModule({
-  declarations: [ChecklistListComponent, ChecklistComponent, ChecklistItemComponent],
+  declarations: [ChecklistListComponent, ChecklistComponent, ChecklistItemComponent, DisplayChecklistComponent],
   exports: [ChecklistItemComponent, ChecklistListComponent],
   imports: [
     CommonModule,
     RouterModule.forChild(routes),
-    MatTreeModule,
     MatCheckboxModule,
     MatInputModule,
     FormsModule,

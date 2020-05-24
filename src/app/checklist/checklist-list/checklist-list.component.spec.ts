@@ -2,7 +2,7 @@ import { async, ComponentFixture, TestBed } from '@angular/core/testing';
 
 import { ChecklistListComponent } from './checklist-list.component';
 import { ChecklistModule } from '../checklist.module';
-import { MockStore, provideMockStore } from '@ngrx/store/testing';
+import { provideMockStore } from '@ngrx/store/testing';
 
 describe('ChecklistListComponent', () => {
   let component: ChecklistListComponent;

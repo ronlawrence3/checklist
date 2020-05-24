@@ -1,0 +1,7 @@
+<app-checklist
+  [title]="checklist?.name"
+  [items]="checklist?.items"
+  [completedItems]="checklist?.completedItems"
+  (completedItemsChanged)="completedChanged($event)"
+  (itemsChanged)="itemsChanged($event)"
+></app-checklist>

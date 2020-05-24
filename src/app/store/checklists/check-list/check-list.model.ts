@@ -5,6 +5,7 @@ export interface CheckList {
   author?: string;
   created?: string;
   items: CheckListItem[];
+  completedItems: CheckListItem[];
 }
 
 export interface CheckListItem {

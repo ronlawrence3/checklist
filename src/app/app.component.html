@@ -1,15 +1,15 @@
 <mat-sidenav-container>
   <mat-sidenav #sidenav mode="side">
-    <mat-toolbar color="primary" class="navbar-sidenav">
-      <button mat-icon-button (click)="addList()">
+    <mat-toolbar class="navbar-sidenav" color="primary">
+      <button (click)="addList()" mat-icon-button>
         <mat-icon>add</mat-icon>
       </button>
     </mat-toolbar>
-    <app-checklist-list></app-checklist-list>
+    <app-checklist-list (listClicked)="openList($event)" [lists]="allLists"></app-checklist-list>
   </mat-sidenav>
   <mat-sidenav-content>
-    <mat-toolbar color="primary" class="navbar-formatting">
-      <button mat-icon-button (click)="sidenav.toggle()">
+    <mat-toolbar class="navbar-formatting" color="primary">
+      <button (click)="sidenav.toggle()" mat-icon-button>
         <mat-icon>list</mat-icon>
       </button>
       <span class="gap"></span>

@@ -1,9 +1,9 @@
-<p>{{title}}</p>
+<p>{{ title }}</p>
 
 <div *ngFor="let i of items">
-  <app-checklist-item></app-checklist-item>
+  <app-checklist-item [item]="i" (itemChanged)="itemChanged($event, i)"></app-checklist-item>
 </div>
-
+<p>Completed:</p>
 <div *ngFor="let i of completedItems">
-  <app-checklist-item></app-checklist-item>
+  <app-checklist-item [item]="i" (itemChanged)="itemChanged($event, i)"></app-checklist-item>
 </div>

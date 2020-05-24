@@ -1,4 +1,4 @@
-import { Component, Input, OnInit } from '@angular/core';
+import { Component, EventEmitter, Input, OnInit, Output } from '@angular/core';
 import { CheckListItem } from '../../store/checklists/check-list/check-list.model';
 
 @Component({
@@ -10,23 +10,28 @@ export class ChecklistComponent implements OnInit {
   @Input()
   title = 'CheckList';
   @Input()
-  items: CheckListItem[] = [
-    { checked: false, id: '1', text: 'First' },
-    { checked: false, id: '2', text: 'Two' },
-    { checked: false, id: '3', text: 'three' },
-    { checked: false, id: '4', text: 'Four' },
-    { checked: false, id: '5', text: 'Five' },
-    { checked: false, id: '6', text: 'six' },
-    { checked: false, id: '7', text: 'seven' },
-    { checked: false, id: '8', text: 'eight' },
-    { checked: false, id: '9', text: 'Nine' },
-    { checked: false, id: '10', text: '' },
-    { checked: false, id: '11', text: '' },
-  ];
+  description = '';
+  @Input()
+  items: CheckListItem[] = [];
   @Input()
   completedItems: CheckListItem[] = [];
+  @Output()
+  itemsChanged = new EventEmitter<CheckListItem[]>();
+  @Output()
+  completedItemsChanged = new EventEmitter<CheckListItem[]>();
 
   constructor() {}
 
   ngOnInit() {}
+
+  itemChanged(newItem: CheckListItem, item: CheckListItem) {
+    // do the thing ... TODO
+    const exitem = this.items.find(i => i.id === item.id);
+    const excitem = this.completedItems.find(i => i.id === item.id);
+    if (exitem) {
+      this.itemsChanged.emit([...this.items.filter(i => i.id !== newItem.id), newItem]);
+    } else if (excitem) {
+      this.completedItemsChanged.emit([...this.completedItems.filter(i => i.id !== newItem.id), newItem]);
+    }
+  }
 }
